@@ -1,14 +1,26 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package btsjavazon;
-
 /**
  *
  * @author Bryan
  */
-public class Customer {
-    
+public class Customer extends Person {
+    private String membershipID;
+
+    public Customer(String firstName, String lastName, String anAddress, String city, String state, String zip,
+                    String phone, String aMembershipID) {
+
+        super(firstName, lastName, anAddress, city, state, zip, phone);
+
+        membershipID = aMembershipID;
+    }
+
+    public String toString() {
+        String result = "";
+
+        result += "Member ID: " + membershipID + "\n";
+        result += super.toString();
+
+        return result;
+    }
+
 }

@@ -1,5 +1,4 @@
 package btsjavazon;
-
 /**
  *
  * @author Bryan
@@ -11,7 +10,7 @@ public class Clerk extends Person {
     //CONSTRUCTOR
     public Clerk(String anID, int aRegister, String firstName, String lastName,
             String anAddress, String city, String state, String zip, String phone) {
-        
+
         super (firstName, lastName, anAddress, city, state, zip, phone);
         
         registerNbr = aRegister;
