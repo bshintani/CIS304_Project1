@@ -1,0 +1,57 @@
+/*
+ * To change this license header, choose License Headers in Project Properties.
+ * To change this template file, choose Tools | Templates
+ * and open the template in the editor.
+ */
+package btsjavazon;
+
+/**
+ *
+ * @author Bryan
+ */
+public class Product {
+    private String sku;
+    private String type;
+    private String description;
+    private double price;
+    
+    public Product(String aSku, String aType, String aDesc, double aPrice) {
+        this.sku = aSku;
+        this.type = aType;
+        this.description = aDesc;
+        this.price = aPrice;
+    }
+
+    public String getSku() {
+        return sku;
+    }
+
+    public void setSku(String sku) {
+        this.sku = sku;
+    }
+
+    public String getType() {
+        return type;
+    }
+
+    public void setType(String type) {
+        this.type = type;
+    }
+
+    public String getDescription() {
+        return description;
+    }
+
+    public void setDescription(String description) {
+        this.description = description;
+    }
+
+    public double getPrice() {
+        return price;
+    }
+
+    public void setPrice(double price) {
+        this.price = price;
+    }
+    
+}
