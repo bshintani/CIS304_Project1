@@ -118,17 +118,24 @@ public class Validator {
     }
 
     private static boolean isValidPhone(String anInput) {
-        boolean result = true;
 
         try {
-            //int phoneNumber = Integer.parseInt(anInput);
-            if (anInput.matches("^[a-z, A-Z, (,),-].*") || anInput.length() != 10) {
-                result = false;
+
+            if (anInput.length() == 10) {
+
+                for (int i = 0; i < anInput.length(); i++) {
+                    char number = anInput.charAt(i);
+                    if (!Character.isDigit(number)) {
+                        return false;
+                    }
+                }
+            } else {
+                return false;
             }
         } catch (Exception ex) {
-            result = false;
+            return false;
         }
-        return result;
+        return true;
     }
 
     public static String getValidMembership(String anInput) {
@@ -139,30 +146,34 @@ public class Validator {
     }
 
     private static boolean isValidMembership(String anInput) {
-        boolean result = true;
 
         try {
             if (anInput.length() == 6) {
                 
-                for (int i = 0; i < anInput.length(); i++) {
+                for (int i = 0; i < 2; i++) {
                     char letter = anInput.charAt(i);
-                    //CHECK FIRST 2 CHARACTERS
-                    for (i = 0; i < 2; i++) {
-                        
+                    if (!Character.isLetter(letter)) {
+                        return false;
                     }
-
                 }
+
+                for (int i = 2; i < anInput.length(); i++) {
+                    char number = anInput.charAt(i);
+                    if(!Character.isDigit(number)) {
+                        return false;
+                    }
+                }
+
             } else {
-                result = false;
+                return false;
             }
 
         } catch (Exception ex) {
-            result = false;
+            return false;
         }
-        return result;
+        return true;
     }
 
-    //TODO add product quantity validation
     public static String getValidQuantity(String anInput) {
         while (isValidQuantity(anInput) == false) {
             anInput = JOptionPane.showInputDialog(null, "Please re-enter product quantity\n\n" + anInput + " is invalid.");

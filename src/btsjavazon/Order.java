@@ -39,14 +39,18 @@ public class Order {
         //EACH TIME A USER ADDS A PRODUCT TO THE ORDER
         //IF IT IS THE FIRST PRODUCT ADDED TO THE ORDER THEN
         //STORE IT IN THE orderProduct ARRAY
-        if(orderProduct.length == 0) {
+        if (orderProduct.length == 0 && orderQuantity.length == 0) {
             orderProduct[0] = aProduct;
-            
+            orderQuantity[0] = aQty;
+        } else {
+            orderProduct = Arrays.copyOf(orderProduct, orderProduct.length + 1);
+            orderProduct[orderProduct.length + 1] = aProduct;
+            orderQuantity = Arrays.copyOf(orderQuantity, orderQuantity.length + 1);
+            orderQuantity[orderQuantity.length + 1] = aQty;
         }
 
         //IF MORE PRODUCTS ARE ADDED, YOU HAVE TO RESIZE THE
         //orderProduct and orderQuantity arrays.
-
         //the way to do that is to the the Arrays.copyOf method or
         //to create temp array for each
         //copy the current arrays into temp arrays

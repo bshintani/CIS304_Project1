@@ -51,11 +51,11 @@ public class JavaZon {
         //TODO
         //Randomly assign a clerk to order using .setOrderClerk
         //(see your textbook to see how to use the Random class to generate random numbers)
-        //GenErate a random number between 0 and 2
+        //Generate a random number between 0 and 2
         //use the number as the index of the clerk array
         //add your code below
         Random r = new Random();
-        int clerkNumber = r.nextInt(0-2);
+        int clerkNumber = r.nextInt(3);
         
         //pass the clerk object to the setOrderClerk method OF THE JVZORDER
         //add your code below
