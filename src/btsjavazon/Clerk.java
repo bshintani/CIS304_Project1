@@ -16,6 +16,7 @@ public class Clerk extends Person {
         registerNbr = aRegister;
     }
     
+    //METHOD TO RETURN SUMMARY ABOUT OBJECT
     public String toString() {
         String result = "";
         
@@ -25,10 +26,12 @@ public class Clerk extends Person {
         return result;
     }
     
+    //GETTER FOR EMPLOYEE ID
     public String getEmployeeID() {
         return employeeID;
     }
     
+    //GETTER FOR EMPLOYEE CASH REGISTER
     public int getRegisterNbr() {
         return registerNbr;
     }

@@ -10,15 +10,13 @@ public class JavaZonApp {
     public static void main(String[] args) {
         //COLLECT INFORMATION USING JOPTIONPANE
         String firstName = Validator.getValidFirstName(JOptionPane.showInputDialog("Enter First Name"));
-
-        //Do the same for the other variables
-        String lastName ="";
-        String street="";
-        String city="" ;
-        String state="";
-        String zip ="";
-        String phone="";
-        String membership="";
+        String lastName = Validator.getValidLastName(JOptionPane.showInputDialog("Enter Last Name"));
+        String street = Validator.getValidAddress(JOptionPane.showInputDialog("Enter Street Address"));
+        String city = Validator.getValidCity(JOptionPane.showInputDialog("Enter City"));
+        String state = Validator.getValidState(JOptionPane.showInputDialog("Enter State (2 letters)"));
+        String zip = Validator.getValidZip(JOptionPane.showInputDialog("Enter 5 Digit ZIP"));
+        String phone = Validator.getValidPhone(JOptionPane.showInputDialog("Enter 10 digit Phone # without characters"));
+        String membership= Validator.getValidMembership(JOptionPane.showInputDialog("Enter Membership ID"));
 
         //CREATE A NEW CUSTOMER OBJECT (uncomment line below)
         Customer customer = new Customer(firstName,lastName,street,city,state,zip,phone,membership);
@@ -47,7 +45,7 @@ public class JavaZonApp {
             Product product = menu.getMenu()[intCode];
 
             //PROMPT USER TO ENTER QUANTITY
-            String qty = JOptionPane.showInputDialog("Enter Quantity");
+            String qty = Validator.getValidQuantity(JOptionPane.showInputDialog("Enter Quantity"));
 
             //ADD PRODUCT AND QUANTITY TO ORDER
             order.setOrderProduct(product, Integer.parseInt(qty));
