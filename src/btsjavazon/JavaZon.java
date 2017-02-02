@@ -1,5 +1,7 @@
 package btsjavazon;
 
+import java.util.Random;
+
 /**
  *
  * @author Bryan
@@ -24,7 +26,9 @@ public class JavaZon {
         //SUBTOTAL
         //TAX
         //TOTAL
-
+        jvzOrder.calcSubtotal();
+        jvzOrder.calcTax();
+        jvzOrder.calcTotal();
 
     }
 
@@ -37,6 +41,9 @@ public class JavaZon {
 
         //TODO
         //ADD THESE CLERKS TO THE CLERK ARRAY
+        arrClerks[0] = musicClerk;
+        arrClerks[1] = bookClerk;
+        arrClerks[2] = gameClerk;
     }
 
     //METHOD TO SET A CLERK TO THE ORDER
@@ -47,11 +54,13 @@ public class JavaZon {
         //GenErate a random number between 0 and 2
         //use the number as the index of the clerk array
         //add your code below
-
-
+        Random r = new Random();
+        int clerkNumber = r.nextInt(0-2);
+        
         //pass the clerk object to the setOrderClerk method OF THE JVZORDER
         //add your code below
-
+        jvzOrder.setOrderClerk(arrClerks[clerkNumber]);
+        
     }
 
     //RETURN RECEIPT

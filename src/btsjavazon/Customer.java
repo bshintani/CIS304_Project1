@@ -5,7 +5,8 @@ package btsjavazon;
  */
 public class Customer extends Person {
     private String membershipID;
-
+    
+    //OBJECT CONSTRUCTOR
     public Customer(String firstName, String lastName, String anAddress, String city, String state, String zip,
                     String phone, String aMembershipID) {
 
@@ -13,7 +14,8 @@ public class Customer extends Person {
 
         membershipID = aMembershipID;
     }
-
+    
+    //METHOD TO RETURN SUMMARY ABOUT OBJECT
     public String toString() {
         String result = "";
 

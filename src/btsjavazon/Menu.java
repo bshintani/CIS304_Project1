@@ -33,14 +33,24 @@ public class Menu {
         game = new Product("GM300", "Game", "Halo 3", 44.99);
         menuItems[8] = game;
     }
-
+    
+    //Method to return a product menu array
     public Product[] getMenu() {
         return menuItems;
     }
 
+    //Method to return an array of descriptions
     public String[] getMenuDescriptions() {
         String menuDescription[] = new String[menuItems.length];
-
+        
+        //TODO
+        //FILL THE ARRAY menuDescription with the descriptions of the menu items
+        //return the menuDescription back to the calling method
+        
+        for(int i = 0; i < menuItems.length; i++) {
+            menuDescription[i] = menuItems[i].getDescription();
+        }
+        
         return menuDescription;
     }
     

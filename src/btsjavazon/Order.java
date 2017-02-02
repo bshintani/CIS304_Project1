@@ -39,6 +39,10 @@ public class Order {
         //EACH TIME A USER ADDS A PRODUCT TO THE ORDER
         //IF IT IS THE FIRST PRODUCT ADDED TO THE ORDER THEN
         //STORE IT IN THE orderProduct ARRAY
+        if(orderProduct.length == 0) {
+            orderProduct[0] = aProduct;
+            
+        }
 
         //IF MORE PRODUCTS ARE ADDED, YOU HAVE TO RESIZE THE
         //orderProduct and orderQuantity arrays.
@@ -59,18 +63,24 @@ public class Order {
         //get the price
         //get the quantity from the orderQuantity array
         //STORE IT IN subtotal VARIABLE
+ 
+        for(int i = 0; i < orderProduct.length; i++) {
+            subtotal += orderProduct[i].getPrice();
+        }
     }
 
     public void calcTax() {
         //TODO
         //CALCULATE THE TAX
         //STORE IT IN tax VARIABLE
+        tax = subtotal * TAX_RATE;
     }
 
     public void calcTotal() {
         //TODO
         //CALCULATE THE TOTAL
         //STORE IT IN total VARIABLE
+        total = subtotal + tax;
     }
 
     public String toString() {
@@ -80,6 +90,9 @@ public class Order {
 
         result += "CASHIER @ REGISTER\n" + orderClerk.getFirstName() + " " + orderClerk.getLastName() + " @ " +
                 orderClerk.getRegisterNbr() + "\n\n";
+        result += "CUSTOMER INFO\n" + orderCustomer.toString() + "\n";
+        result += "NUMBER OF ITEMS SOLD = " ;
+        
         //TODO
         //ADD REST OF SUMMARY TO RESULT
         //SEE LINE ABOVE FOR EXAMPLE OF HOW TO GET INFORMATION FROM
