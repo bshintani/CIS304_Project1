@@ -1,12 +1,12 @@
 package btsjavazon;
 
 import javax.swing.JOptionPane;
+
 /**
- *
  * @author Bryan
  */
 public class JavaZonApp {
-    
+
     public static void main(String[] args) {
         //COLLECT INFORMATION USING JOPTIONPANE
         String firstName = Validator.getValidFirstName(JOptionPane.showInputDialog("Enter First Name"));
@@ -16,10 +16,10 @@ public class JavaZonApp {
         String state = Validator.getValidState(JOptionPane.showInputDialog("Enter State (2 letters)"));
         String zip = Validator.getValidZip(JOptionPane.showInputDialog("Enter 5 Digit ZIP"));
         String phone = Validator.getValidPhone(JOptionPane.showInputDialog("Enter 10 digit Phone # without characters"));
-        String membership= Validator.getValidMembership(JOptionPane.showInputDialog("Enter Membership ID"));
+        String membership = Validator.getValidMembership(JOptionPane.showInputDialog("Enter Membership ID"));
 
         //CREATE A NEW CUSTOMER OBJECT (uncomment line below)
-        Customer customer = new Customer(firstName,lastName,street,city,state,zip,phone,membership);
+        Customer customer = new Customer(firstName, lastName, street, city, state, zip, phone, membership);
 
         //CREATE NEW ORDER OBJECT
         Order order = new Order();
@@ -51,7 +51,7 @@ public class JavaZonApp {
             order.setOrderProduct(product, Integer.parseInt(qty));
 
 
-        }while (JOptionPane.showConfirmDialog(null,
+        } while (JOptionPane.showConfirmDialog(null,
                 "Enter More Products?",
                 "User Selection",
                 JOptionPane.YES_NO_OPTION,
@@ -71,7 +71,7 @@ public class JavaZonApp {
         jz.processOrder();
 
         //DISPLAY THE RESULT
-        JOptionPane.showMessageDialog(null,jz.getReceipt());
+        JOptionPane.showMessageDialog(null, jz.getReceipt());
 
-    }    
+    }
 }

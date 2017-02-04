@@ -2,8 +2,8 @@ package btsjavazon;
 
 import java.text.NumberFormat;
 import java.util.Arrays;
+
 /**
- *
  * @author Bryan
  */
 public class Order {
@@ -39,7 +39,8 @@ public class Order {
         //EACH TIME A USER ADDS A PRODUCT TO THE ORDER
         //IF IT IS THE FIRST PRODUCT ADDED TO THE ORDER THEN
         //STORE IT IN THE orderProduct ARRAY
-        if (orderProduct.length == 1 && orderQuantity.length == 1) {
+        if ((orderProduct.length == 1 && orderProduct[0] == null) &&
+                (orderQuantity.length == 1 && orderQuantity[0] == 0)) {
             orderProduct[0] = aProduct;
             orderQuantity[0] = aQty;
         } else {
@@ -68,14 +69,12 @@ public class Order {
         //get the quantity from the orderQuantity array
         //STORE IT IN subtotal VARIABLE
         subtotal = 0;
-        for(int i = 0; i < orderProduct.length; i++) {
+        for (int i = 0; i < orderProduct.length; i++) {
             total = orderProduct[i].getPrice();
-            productCount =orderQuantity[i];
+            productCount += orderQuantity[i];
             //subtotal += orderProduct[i].getPrice();
             subtotal += total * productCount;
         }
-        System.out.println(subtotal);
-        //Only adding the last 2 of 3 prices
     }
 
     public void calcTax() {
@@ -96,23 +95,32 @@ public class Order {
         NumberFormat nf = NumberFormat.getCurrencyInstance();
 
         String result = "";
+        String purchaseList = "";
+
+        for (int i = 0; i < orderProduct.length; i++) {
+            purchaseList += orderQuantity[i] + " @ " + orderProduct[i].getPrice() + " = " +
+                    orderQuantity[i] * orderProduct[i].getPrice() + "\n  " +
+                    orderProduct[i].getDescription() + "\n\n";
+        }
 
         result += "CASHIER @ REGISTER\n" + orderClerk.getFirstName() + " " + orderClerk.getLastName() + " @ " +
                 orderClerk.getRegisterNbr() + "\n\n";
-        result += "CUSTOMER INFO\n" + orderCustomer.toString() + "\n";
-        result += "NUMBER OF ITEMS SOLD = " ;
-        
         //TODO
         //ADD REST OF SUMMARY TO RESULT
         //SEE LINE ABOVE FOR EXAMPLE OF HOW TO GET INFORMATION FROM
         //OTHER OBJECTS THAT ARE AVAILABLE WITHIN THE ORDER CLASS
         //SEE PROJECT HANDOUT TO GET IDEA OF HOW YOUR SUMMARY SHOULD LOOK LIKE
+        result += "CUSTOMER INFO\n" + orderCustomer.toString() + "\n";
+        result += "NUMBER OF ITEMS SOLD = " + productCount + "\n\n";
+        result += purchaseList;
+        result += "TOTALS\n" + "Subtotal: " + nf.format(subtotal) + "\n" + "Tax: " + nf.format(tax) + "\n" + "Total: " + nf.format(total);
+
         return result;
     }
 
     public int getNumberItemsSold() {
         int totalQty = 0;
-        for(int i = 0; i < orderQuantity.length; i++) {
+        for (int i = 0; i < orderQuantity.length; i++) {
             totalQty += orderQuantity[i];
         }
 

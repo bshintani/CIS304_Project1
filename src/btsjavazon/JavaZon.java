@@ -3,7 +3,6 @@ package btsjavazon;
 import java.util.Random;
 
 /**
- *
  * @author Bryan
  */
 public class JavaZon {
@@ -11,17 +10,17 @@ public class JavaZon {
     private Order jvzOrder;
 
     //CLASS CONSTRUCTOR
-    public JavaZon(){
+    public JavaZon() {
         loadClerkList();
     }
 
     //ASSIGN AN ORDER THROUGH SETTER
-    public void setOrder(Order anOrder){
+    public void setOrder(Order anOrder) {
         jvzOrder = anOrder;
     }
 
     //PROCESS ORDER
-    public void processOrder(){
+    public void processOrder() {
         //TODO CALL JVZ ORDER METHODS TO PERFORM CALCULATIONS
         //SUBTOTAL
         //TAX
@@ -33,11 +32,11 @@ public class JavaZon {
     }
 
     //METHOD TO LOAD CLERKS
-    public void loadClerkList(){
+    public void loadClerkList() {
         arrClerks = new Clerk[3];
-        Clerk musicClerk = new Clerk("EMP100",1, "Homer", "Simpson","243 North Main", "Spingfield", "CA", "98765", "909-987-6666");
-        Clerk bookClerk = new Clerk("EMP200", 2,"Bart", "Simpson","454 North Euclid", "Spingfield", "CA", "98765", "909-987-4444");
-        Clerk gameClerk = new Clerk("EMP300",3, "Lisa", "Simpson","767 North Holt", "Spingfield", "CA", "98765", "909-987-3333");
+        Clerk musicClerk = new Clerk("EMP100", 1, "Homer", "Simpson", "243 North Main", "Spingfield", "CA", "98765", "909-987-6666");
+        Clerk bookClerk = new Clerk("EMP200", 2, "Bart", "Simpson", "454 North Euclid", "Spingfield", "CA", "98765", "909-987-4444");
+        Clerk gameClerk = new Clerk("EMP300", 3, "Lisa", "Simpson", "767 North Holt", "Spingfield", "CA", "98765", "909-987-3333");
 
         //TODO
         //ADD THESE CLERKS TO THE CLERK ARRAY
@@ -47,7 +46,7 @@ public class JavaZon {
     }
 
     //METHOD TO SET A CLERK TO THE ORDER
-    public void setClerk(){
+    public void setClerk() {
         //TODO
         //Randomly assign a clerk to order using .setOrderClerk
         //(see your textbook to see how to use the Random class to generate random numbers)
@@ -56,15 +55,15 @@ public class JavaZon {
         //add your code below
         Random r = new Random();
         int clerkNumber = r.nextInt(3);
-        
+
         //pass the clerk object to the setOrderClerk method OF THE JVZORDER
         //add your code below
         jvzOrder.setOrderClerk(arrClerks[clerkNumber]);
-        
+
     }
 
     //RETURN RECEIPT
-    public String getReceipt(){
+    public String getReceipt() {
         String result;
 
         result = "JAVAZON WHOLESALE STORE\n\n";

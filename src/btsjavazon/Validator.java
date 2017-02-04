@@ -3,7 +3,6 @@ package btsjavazon;
 import javax.swing.JOptionPane;
 
 /**
- *
  * @author Bryan
  */
 public class Validator {
@@ -149,7 +148,7 @@ public class Validator {
 
         try {
             if (anInput.length() == 6) {
-                
+
                 for (int i = 0; i < 2; i++) {
                     char letter = anInput.charAt(i);
                     if (!Character.isLetter(letter)) {
@@ -159,7 +158,7 @@ public class Validator {
 
                 for (int i = 2; i < anInput.length(); i++) {
                     char number = anInput.charAt(i);
-                    if(!Character.isDigit(number)) {
+                    if (!Character.isDigit(number)) {
                         return false;
                     }
                 }

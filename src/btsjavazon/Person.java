@@ -1,6 +1,6 @@
 package btsjavazon;
+
 /**
- *
  * @author Bryan
  */
 public class Person {
@@ -11,9 +11,9 @@ public class Person {
     private String phone;
     private String state;
     private String zip;
-    
+
     public Person(String aFirstName, String aLastName, String anAddress, String aCity,
-            String aState, String aZip, String aPhone) {
+                  String aState, String aZip, String aPhone) {
         this.firstName = aFirstName;
         this.lastName = aLastName;
         this.address = anAddress;
@@ -22,16 +22,16 @@ public class Person {
         this.zip = aZip;
         this.phone = aPhone;
     }
-    
+
     public String toString() {
         String result = "";
-        
+
         result += "Name: " + firstName + " " + lastName + "\n";
         result += "Phone : " + phone + "\n\n";
         result += "Address\n";
         result += address + "\n";
         result += city + ", " + state + ", " + zip + "\n";
-        
+
         return result;
     }
 
@@ -90,5 +90,5 @@ public class Person {
     public void setZip(String zip) {
         this.zip = zip;
     }
-    
+
 }

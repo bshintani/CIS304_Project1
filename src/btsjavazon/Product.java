@@ -1,7 +1,6 @@
 package btsjavazon;
 
 /**
- *
  * @author Bryan
  */
 public class Product {
@@ -9,7 +8,7 @@ public class Product {
     private String type;
     private String description;
     private double price;
-    
+
     public Product(String aSku, String aType, String aDesc, double aPrice) {
         this.sku = aSku;
         this.type = aType;
@@ -48,5 +47,5 @@ public class Product {
     public void setPrice(double price) {
         this.price = price;
     }
-    
+
 }
