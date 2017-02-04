@@ -71,8 +71,7 @@ public class Order {
         subtotal = 0;
         for (int i = 0; i < orderProduct.length; i++) {
             total = orderProduct[i].getPrice();
-            productCount += orderQuantity[i];
-            //subtotal += orderProduct[i].getPrice();
+            productCount = orderQuantity[i];
             subtotal += total * productCount;
         }
     }
@@ -98,9 +97,9 @@ public class Order {
         String purchaseList = "";
 
         for (int i = 0; i < orderProduct.length; i++) {
-            purchaseList += orderQuantity[i] + " @ " + orderProduct[i].getPrice() + " = " +
-                    orderQuantity[i] * orderProduct[i].getPrice() + "\n  " +
-                    orderProduct[i].getDescription() + "\n\n";
+            double itemSubtotal = orderQuantity[i] * orderProduct[i].getPrice();
+            purchaseList += orderQuantity[i] + " @ " + nf.format(orderProduct[i].getPrice()) + " = " +
+                            nf.format(itemSubtotal) + "\n  " + orderProduct[i].getDescription() + "\n\n";
         }
 
         result += "CASHIER @ REGISTER\n" + orderClerk.getFirstName() + " " + orderClerk.getLastName() + " @ " +
@@ -111,7 +110,7 @@ public class Order {
         //OTHER OBJECTS THAT ARE AVAILABLE WITHIN THE ORDER CLASS
         //SEE PROJECT HANDOUT TO GET IDEA OF HOW YOUR SUMMARY SHOULD LOOK LIKE
         result += "CUSTOMER INFO\n" + orderCustomer.toString() + "\n";
-        result += "NUMBER OF ITEMS SOLD = " + productCount + "\n\n";
+        result += "NUMBER OF ITEMS SOLD = " + getNumberItemsSold() + "\n\n";
         result += purchaseList;
         result += "TOTALS\n" + "Subtotal: " + nf.format(subtotal) + "\n" + "Tax: " + nf.format(tax) + "\n" + "Total: " + nf.format(total);
 
