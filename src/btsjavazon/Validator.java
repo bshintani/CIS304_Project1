@@ -7,7 +7,6 @@ import javax.swing.JOptionPane;
  */
 public class Validator {
 
-    //TODO - CODE THE VALIDATOR
     public static String getValidFirstName(String anInput) {
         while (isValidFirstName(anInput) == false) {
             anInput = JOptionPane.showInputDialog(null, "Please re-enter first name\n\n" + anInput + " is invalid.");

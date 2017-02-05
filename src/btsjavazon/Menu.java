@@ -43,10 +43,6 @@ public class Menu {
     public String[] getMenuDescriptions() {
         String menuDescription[] = new String[menuItems.length];
 
-        //TODO
-        //FILL THE ARRAY menuDescription with the descriptions of the menu items
-        //return the menuDescription back to the calling method
-
         for (int i = 0; i < menuItems.length; i++) {
             menuDescription[i] = menuItems[i].getDescription();
         }

@@ -21,10 +21,6 @@ public class JavaZon {
 
     //PROCESS ORDER
     public void processOrder() {
-        //TODO CALL JVZ ORDER METHODS TO PERFORM CALCULATIONS
-        //SUBTOTAL
-        //TAX
-        //TOTAL
         jvzOrder.calcSubtotal();
         jvzOrder.calcTax();
         jvzOrder.calcTotal();
@@ -47,17 +43,9 @@ public class JavaZon {
 
     //METHOD TO SET A CLERK TO THE ORDER
     public void setClerk() {
-        //TODO
-        //Randomly assign a clerk to order using .setOrderClerk
-        //(see your textbook to see how to use the Random class to generate random numbers)
-        //Generate a random number between 0 and 2
-        //use the number as the index of the clerk array
-        //add your code below
         Random r = new Random();
         int clerkNumber = r.nextInt(3);
 
-        //pass the clerk object to the setOrderClerk method OF THE JVZORDER
-        //add your code below
         jvzOrder.setOrderClerk(arrClerks[clerkNumber]);
 
     }
