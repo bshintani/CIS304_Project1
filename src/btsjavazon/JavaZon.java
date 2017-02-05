@@ -30,12 +30,10 @@ public class JavaZon {
     //METHOD TO LOAD CLERKS
     public void loadClerkList() {
         arrClerks = new Clerk[3];
-        Clerk musicClerk = new Clerk("EMP100", 1, "Homer", "Simpson", "243 North Main", "Spingfield", "CA", "98765", "909-987-6666");
-        Clerk bookClerk = new Clerk("EMP200", 2, "Bart", "Simpson", "454 North Euclid", "Spingfield", "CA", "98765", "909-987-4444");
-        Clerk gameClerk = new Clerk("EMP300", 3, "Lisa", "Simpson", "767 North Holt", "Spingfield", "CA", "98765", "909-987-3333");
+        Clerk musicClerk = new Clerk("EMP100", 1, "Homer", "Simpson", "243 North Main", "Springfield", "CA", "98765", "909-987-6666");
+        Clerk bookClerk = new Clerk("EMP200", 2, "Bart", "Simpson", "454 North Euclid", "Springfield", "CA", "98765", "909-987-4444");
+        Clerk gameClerk = new Clerk("EMP300", 3, "Lisa", "Simpson", "767 North Holt", "Springfield", "CA", "98765", "909-987-3333");
 
-        //TODO
-        //ADD THESE CLERKS TO THE CLERK ARRAY
         arrClerks[0] = musicClerk;
         arrClerks[1] = bookClerk;
         arrClerks[2] = gameClerk;

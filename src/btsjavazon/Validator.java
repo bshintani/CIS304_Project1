@@ -14,6 +14,7 @@ public class Validator {
         return anInput;
     }
 
+    //Logic to check that first name input is not blank
     private static boolean isValidFirstName(String anInput) {
         boolean result = true;
 
@@ -30,6 +31,7 @@ public class Validator {
         return anInput;
     }
 
+    //Logic to check that last name input is not blank
     private static boolean isValidLastName(String anInput) {
         boolean result = true;
 
@@ -46,6 +48,7 @@ public class Validator {
         return anInput;
     }
 
+    //Logic to check that address input is not blank
     private static boolean isValidAddress(String anInput) {
         boolean result = true;
 
@@ -62,6 +65,7 @@ public class Validator {
         return anInput;
     }
 
+    //Logic to check that city input is not blank
     private static boolean isValidCity(String anInput) {
         boolean result = true;
 
@@ -78,13 +82,25 @@ public class Validator {
         return anInput;
     }
 
+    //Logic to check that state input is 2 characters
+    //of which are BOTH letters
     private static boolean isValidState(String anInput) {
-        boolean result = true;
 
-        if (anInput.length() == 0 || anInput.length() > 2) {
-            result = false;
+        try {
+            if (anInput.length() != 2) {
+                for (int i = 0; i < anInput.length(); i++) {
+                    char letter = anInput.charAt(i);
+                    if (!Character.isLetter(letter)) {
+                        return false;
+                    }
+                }
+            } else {
+                return false;
+            }
+        } catch (Exception ex) {
+            return false;
         }
-        return result;
+        return true;
     }
 
     public static String getValidZip(String anInput) {
@@ -94,18 +110,25 @@ public class Validator {
         return anInput;
     }
 
+    //Logic to check that zip input is 5 characters
+    //of which are ALL digits
     private static boolean isValidZip(String anInput) {
-        boolean result = true;
 
         try {
-            int zipCode = Integer.parseInt(anInput);
-            if (anInput.length() != 5) {
-                result = false;
+            if (anInput.length() == 5) {
+                for (int i = 0; i < anInput.length(); i++) {
+                    char number = anInput.charAt(i);
+                    if (!Character.isDigit(number)) {
+                        return false;
+                    }
+                }
+            } else {
+                return false;
             }
         } catch (Exception ex) {
-            result = false;
+            return false;
         }
-        return result;
+        return true;
     }
 
     public static String getValidPhone(String anInput) {
@@ -115,6 +138,9 @@ public class Validator {
         return anInput;
     }
 
+    //Logic to check that phone input is 10 characters
+    //of which are ALL numbers which makes it impossible for
+    //special symbols to be present in the input
     private static boolean isValidPhone(String anInput) {
 
         try {
@@ -143,6 +169,8 @@ public class Validator {
         return anInput;
     }
 
+    //Logic to check that membership input is 6 characters
+    //of which the first 2 are letters and the last 4 are digits
     private static boolean isValidMembership(String anInput) {
 
         try {
@@ -179,6 +207,7 @@ public class Validator {
         return anInput;
     }
 
+    //Logic to check that quantity input is an integer between 1 and 10
     private static boolean isValidQuantity(String anInput) {
         boolean result = true;
 

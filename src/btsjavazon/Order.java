@@ -34,6 +34,8 @@ public class Order {
         orderClerk = aClerk;
     }
 
+    //Adds Product and Quantity to first index of their respective arrays if it is the first item being added
+    //Otherwise, resizes array using .copyOf and adds items and quantities respectively
     public void setOrderProduct(Product aProduct, int aQty) {
         if ((orderProduct.length == 1 && orderProduct[0] == null) &&
                 (orderQuantity.length == 1 && orderQuantity[0] == 0)) {
@@ -47,6 +49,7 @@ public class Order {
         }
     }
 
+    //Loops through orderProduct and orderQuantity array to calculate subtotal
     public void calcSubtotal() {
         subtotal = 0;
         for (int i = 0; i < orderProduct.length; i++) {
@@ -56,20 +59,25 @@ public class Order {
         }
     }
 
+    //Calculates tax
     public void calcTax() {
         tax = subtotal * TAX_RATE;
     }
 
+    //Calculates total
     public void calcTotal() {
         total = subtotal + tax;
     }
 
+    //Displays the dynamic portion of the receipt
     public String toString() {
         NumberFormat nf = NumberFormat.getCurrencyInstance();
 
         String result = "";
         String purchaseList = "";
 
+        //Loop to the products purchased, quantities, individual prices,
+        //and subtotal of different items purchased to a String purchaseList
         for (int i = 0; i < orderProduct.length; i++) {
             double itemSubtotal = orderQuantity[i] * orderProduct[i].getPrice();
             purchaseList += orderQuantity[i] + " @ " + nf.format(orderProduct[i].getPrice()) + " = " +
@@ -86,6 +94,8 @@ public class Order {
         return result;
     }
 
+    //Loops through orderQuantity array
+    //Returns total number of items sold
     public int getNumberItemsSold() {
         int totalQty = 0;
         for (int i = 0; i < orderQuantity.length; i++) {
