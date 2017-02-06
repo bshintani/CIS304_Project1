@@ -87,7 +87,7 @@ public class Validator {
     private static boolean isValidState(String anInput) {
 
         try {
-            if (anInput.length() != 2) {
+            if (anInput.length() == 2) {
                 for (int i = 0; i < anInput.length(); i++) {
                     char letter = anInput.charAt(i);
                     if (!Character.isLetter(letter)) {
